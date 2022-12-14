@@ -352,6 +352,7 @@ Once you're done, you can spin down your Kubernetes resources by navigating to t
 
 <!-- STEP
 name: "Deploy Kubernetes"
+output_match_mode: substring
 working_dir: "./deploy"
 sleep: 10
 expected_stdout_lines:
