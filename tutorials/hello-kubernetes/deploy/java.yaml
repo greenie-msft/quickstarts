@@ -1,0 +1,46 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: javaapp
+  labels:
+    app: java
+spec:
+  selector:
+    app: java
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaapp
+  labels:
+    app: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "javaapp"
+        dapr.io/app-port: "3000"
+        dapr.io/enable-api-logging: "true"
+    spec:
+      containers:
+      - name: java
+        image: demojavaaks.azurecr.io/demojavaaks:v1
+        env:
+        - name: APP_PORT
+          value: "3000"
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
