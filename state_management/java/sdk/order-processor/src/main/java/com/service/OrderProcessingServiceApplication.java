@@ -23,7 +23,7 @@ public class OrderProcessingServiceApplication {
 
                 // Get state from the state store
                 State<Order> response = client.getState(DAPR_STATE_STORE, String.valueOf(orderId), Order.class).block();
-                System.out.println("Getting Order: " + response.getValue().getOrderId());
+                System.out.println("Java Order: " + response.getValue().getOrderId());
 
                 // Delete state from the state store
                 client.deleteState(DAPR_STATE_STORE, String.valueOf(orderId)).block();
