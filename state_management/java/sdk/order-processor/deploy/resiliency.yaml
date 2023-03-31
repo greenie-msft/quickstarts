@@ -3,22 +3,19 @@ kind: Resiliency
 metadata:
   name: myresiliency
 scopes:
-  - order-processor
-
+  - javaapp
 spec:
   policies:
     retries:
       retryForever:
         policy: constant
-        duration: 5s
+        duration: 2s
         maxRetries: -1 
-
     circuitBreakers:
       simpleCB:
         maxRequests: 1
         timeout: 5s 
-        trip: consecutiveFailures >= 5
-
+        trip: consecutiveFailures >= 2
   targets:
     components:
       statestore:
