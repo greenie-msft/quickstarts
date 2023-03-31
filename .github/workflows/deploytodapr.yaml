@@ -9,7 +9,7 @@ env:
     AZURE_CONTAINER_REGISTRY: demojavaaks
     CLUSTER_NAME: demojavaaks
     CLUSTER_RESOURCE_GROUP: demo_java_aks
-    CONTAINER_NAME: image-workflow-1680216231585
+    CONTAINER_NAME: demojavaaks
     DEPLOYMENT_MANIFEST_PATH: |
         ./state_management/java/sdk/order-processor/deploy/java.yaml
 jobs:
