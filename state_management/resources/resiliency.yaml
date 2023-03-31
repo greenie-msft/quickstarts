@@ -17,7 +17,7 @@ spec:
       simpleCB:
         maxRequests: 1
         timeout: 5s 
-        trip: consecutiveFailures >= 5
+        trip: consecutiveFailures >= 10
 
   targets:
     components:
