@@ -9,5 +9,5 @@ RUN mvn clean install
 
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/OrderProcessingService-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
-EXPOSE 3000
+EXPOSE 3000 8080 50001
 ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]

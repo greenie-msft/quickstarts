@@ -28,7 +28,7 @@ public class OrderProcessingServiceApplication {
                 // Delete state from the state store
                 client.deleteState(DAPR_STATE_STORE, String.valueOf(orderId)).block();
                 System.out.println("Deleting Order: " + orderId);
-                TimeUnit.MILLISECONDS.sleep(1000);
+                TimeUnit.MILLISECONDS.sleep(3000);
             }
         }
     }
